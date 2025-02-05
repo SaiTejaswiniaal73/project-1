@@ -1,0 +1,28 @@
+/* Style for product cards */
+.product {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 15px;
+    text-align: center;
+    overflow: hidden; /* Ensures that overflow is hidden if image overflows */
+  }
+  
+  .product img {
+    width: 100%; /* Ensures the image fills the width of its container */
+    height: 250px; /* Sets a fixed height for uniformity */
+    object-fit: cover; /* Ensures the image is cropped to fit without distortion */
+    object-position: center; /* Ensures the image is centered in the container */
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .product .card-body {
+    padding: 10px;
+  }
+  
+  .product .btn {
+    margin-top: 10px;
+  }
+  
