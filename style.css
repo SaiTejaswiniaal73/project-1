@@ -1,66 +1,64 @@
-/* Style for product cards */
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  background-color:brown;
+}
+#navbarNav{
+  background-color:brown;
+
+}
+
+.navbar-nav .nav-link {
+  font-size: 1.2rem;
+  margin-right: 15px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #f8d210 !important; /* Change color on hover */
+}
+
+.navbar-nav {
+  align-items: center;
+}
+
+.nav-item a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Product Card */
 .product {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    padding: 15px;
-    text-align: center;
-    overflow: hidden; /* Ensures that overflow is hidden if image overflows */
-  }
-  
-  .product img {
-    width: 100%; /* Ensures the image fills the width of its container */
-    height: 250px; /* Sets a fixed height for uniformity */
-    object-fit: cover; /* Ensures the image is cropped to fit without distortion */
-    object-position: center; /* Ensures the image is centered in the container */
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-  }
-  
-  .product .card-body {
-    padding: 10px;
-  }
-  
-  .product .btn {
-    margin-top: 10px;
-  }
-  #carouselExampleCaptions {
-    width: 80vw;  
-    height: 80vh; 
-    margin: 30px auto;
-    box-shadow: 0px 0px 10px 10px gray;
-  }
-  
-  #carouselExampleCaptions .carousel-inner {
-    height: 100%;
-  }
-  
-  .product {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    padding: 15px;
-    text-align: center;
-    overflow: hidden;
-  }
-  
-  .product img {
-    width: 100%;
-    height: 20%;
-    object-fit: cover;
-    object-position: center;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-  }
-  
-  .product .card-body {
-    padding: 10px;
-  }
-  
-  .product .btn {
-    margin-top: 10px;
-  }
-  
-  
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+}
+
+.product:hover {
+  transform: scale(1.05);
+}
+
+.product-image {
+  width: 100%;
+  height: 250px; /* Ensures uniform height */
+  object-fit: contain; /* Displays full image without cropping */
+  background-color: #f8f8f8; /* Light background for transparency */
+}
+
+.card-body {
+  flex-grow: 1;
+}
+
+/* Buttons */
+.btn-custom {
+  width: 32%;
+}
