@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H&M Fashion App - Login</title>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+        import {
+            getAuth,
+            createUserWithEmailAndPassword,
+            signInWithEmailAndPassword
+        } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDZt47GRTL-XU0kqWLslCr6DAIVPFicH5A",
+            authDomain: "fir-project-try.firebaseapp.com",
+            projectId: "fir-project-try",
+            storageBucket: "fir-project-try.firebasestorage.app",
+            messagingSenderId: "675417671619",
+            appId: "1:675417671619:web:4247bca1f91bd42ad99f76",
+            measurementId: "G-RBB5QSDNH0"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        document.getElementById("signup").addEventListener("submit", (e) => {
+            e.preventDefault();
+            let email = e.target[0].value;
+            let password = e.target[1].value;
+
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    alert("User registered successfully");
+                    window.location.href = "index.html";
+                })
+                .catch((error) => {
+                    alert(error.message);
+                });
+        });
+
+        document.getElementById("signin").addEventListener("submit", (e) => {
+            e.preventDefault();
+            let email = e.target[0].value;
+            let password = e.target[1].value;
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    alert("Login successful");
+                    window.location.href = "index.html";
+                })
+                .catch((error) => {
+                    alert("Invalid credentials");
+                });
+        });
+
+        document.getElementById("btn").addEventListener("click", () => {
+            document.getElementById("signin").style.display = "block";
+            document.getElementById("signup").style.display = "none";
+            document.getElementById("btn").style.display = "none";
+            document.getElementById("btn1").style.display = "inline-block";
+        });
+
+        document.getElementById("btn1").addEventListener("click", () => {
+            document.getElementById("signup").style.display = "block";
+            document.getElementById("signin").style.display = "none";
+            document.getElementById("btn1").style.display = "none";
+            document.getElementById("btn").style.display = "inline-block";
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:whitesmoke;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 350px;
+        }
+        h1 {
+            color: #333;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #e91e63;
+        }
+        #btn, #btn1 {
+            background-color: transparent;
+            color: #ff4081;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="signup">
+            <h1>Sign Up</h1>
+            <input type="email" id="signup-mail" placeholder="Email">
+            <input type="password" id="signup-psw" placeholder="Password">
+            <input type="submit" class="btn" value="Sign Up">
+        </form>
+        <button id="btn">Have an account? Sign In</button>
+        <form id="signin" style="display: none;">
+            <h1>Sign In</h1>
+            <input type="email" id="signin-mail" placeholder="Email">
+            <input type="password" id="signin-psw" placeholder="Password">
+            <input type="submit" class="btn" value="Sign In">
+        </form>
+        <button id="btn1" style="display: none;">Create an Account</button>
+    </div>
+</body>
+</html>
