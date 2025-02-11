@@ -142,3 +142,4 @@ document.getElementById("filterCategory").addEventListener("change", () => {
 
 // Load products on page load
 fetchProducts();
+//login guest
