@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Guest Login
     guestButton.addEventListener("click", () => {
       localStorage.setItem("guest", "true");
-      window.location.href = "index.html"; // Redirect as guest
+      window.location.href = "index.html"
     });
   });
   
